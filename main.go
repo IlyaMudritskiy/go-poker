@@ -1,13 +1,22 @@
 package main
 
 import (
-	"github.com/ilyamudritskiy/go-poker/objects"
+	o "github.com/ilyamudritskiy/go-poker/objects"
 )
 
 func main() {
-	var deck = objects.GetDeck()
-	objects.PrintTable()
-	var hand = deck.DealHand(0)
-	hand.Print("big")
+	var deck = o.GetDeck()
+	deck.Print()
+
+	deck.Cards[0].Print(true)
 	
+	var hand = o.Hand{deck.Draw(), deck.Draw()}
+	hand.Print()
+
+	var table = o.GetTable()
+	table.AddCard(deck.Draw())
+	table.AddCard(deck.Draw())
+	table.AddCard(deck.Draw())
+	table.Print()
+	deck.Print()
 }
