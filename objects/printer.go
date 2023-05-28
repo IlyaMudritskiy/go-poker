@@ -9,7 +9,9 @@ import (
 //=                 Printing and converting to string for Card                 =
 //==============================================================================
 
+// Returnes Face or Back of Card in big and mini formats
 func (card Card) AsString(mini bool) string {
+	// Spacing for cards with 1 symbol in value
 	var spacing string = " "
 
 	if card.Value == "10" {
@@ -23,6 +25,7 @@ func (card Card) AsString(mini bool) string {
 	}
 }
 
+// Prints the card in big or mini format
 func (card Card) Print(mini bool) {
 	fmt.Print(card.AsString(mini))
 }
@@ -31,6 +34,7 @@ func (card Card) Print(mini bool) {
 //=                 Printing and converting to string for Hand                 =
 //==============================================================================
 
+// Convert Hand to string
 func (hand Hand) AsString() string {
 	var result string = ""
 
@@ -52,6 +56,7 @@ func (hand Hand) Print() {
 //=                 Printing and converting to string for Deck                 =
 //==============================================================================
 
+// Returns deck as string (suite value) for checking and troubleshooting
 func (deck Deck) AsString() string {
 	var result string = ""
 
@@ -98,6 +103,7 @@ func (table Table) Print() {
 //=                            Supporting functions                            =
 //==============================================================================
 
+// Returnes Face or Back of the card based on Open flag
 func (card Card) getImage() []string {
 	if card.Open {
 		return card.Face
@@ -106,6 +112,7 @@ func (card Card) getImage() []string {
 	}
 }
 
+// Converts Face or Back ([]string) to string
 func faceAsString(lines []string) string {
 	var result string = ""
 	for _, line := range lines {
@@ -114,6 +121,8 @@ func faceAsString(lines []string) string {
 	return result
 }
 
+// Converts a slice of cards into string (big format)
+// Contains big cards placed one after another horizontally
 func cardsAsString(cards []Card) string {
 	var result string = ""
 

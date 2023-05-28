@@ -9,6 +9,7 @@ type Table struct {
 	Current int
 }
 
+// Creates Table of 5 cards that are empty
 func GetTable() Table {
 	var table = Table{}
 	table.Current = 0

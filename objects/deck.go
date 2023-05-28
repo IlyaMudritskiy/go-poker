@@ -45,6 +45,7 @@ func (deck Deck) randomise() Deck {
 	return result
 }
 
+// Get 1 card from the Deck noting that card is used
 func (deck *Deck) Draw() Card {
 	if deck.Current > len(deck.Cards) {
 		fmt.Println("No more cards available!")
@@ -52,10 +53,12 @@ func (deck *Deck) Draw() Card {
 
 	var card = deck.Cards[deck.Current]
 
-	// Set value color to yellow
+	// Set value color to UsedColor to check when deck is printed
 	deck.Cards[deck.Current].Value = s.UsedColor.Get(deck.Cards[deck.Current].Value)
 
+	// Temporarily here
 	card.Open = true
+	// Note that card is used
 	card.Used = true
 
 	deck.Current++

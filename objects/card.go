@@ -10,6 +10,8 @@ import (
 //   - Value: value of the card
 //   - Face: []string is face of the card, filles automatically
 //   - Back: []string is back of the card, filles automatically
+//	 - Used: bool shows if card was used
+//   - Open: bool shows if card is face up or down
 type Card struct {
 	Suite string
 	Value string
@@ -76,7 +78,7 @@ func colorSuite(suite string) string {
 	return suite
 }
 
-// Function for getting ready Card with filled fields
+// Function for getting ready Card with filled fields and colored suites
 func GetCard(suite string, value string) Card {
 	if len(cardBack) == 0 {
 		fillBack()
